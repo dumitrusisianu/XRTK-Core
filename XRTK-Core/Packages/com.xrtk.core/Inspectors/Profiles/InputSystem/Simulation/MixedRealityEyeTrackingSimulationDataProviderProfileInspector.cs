@@ -8,8 +8,8 @@ using XRTK.Inspectors.Utilities;
 
 namespace XRTK.Inspectors.Profiles.InputSystem.Simulation
 {
-    [CustomEditor(typeof(MixedRealityEyeTrackingInputSimulationDataProviderProfile))]
-    public class MixedRealityEyeTrackingInputSimulationDataProviderProfileInspector : BaseMixedRealityProfileInspector
+    [CustomEditor(typeof(MixedRealityEyeTrackingSimulationDataProviderProfile))]
+    public class MixedRealityEyeTrackingSimulationDataProviderProfileInspector : BaseMixedRealityProfileInspector
     {
         private SerializedProperty simulateEyePosition;
 

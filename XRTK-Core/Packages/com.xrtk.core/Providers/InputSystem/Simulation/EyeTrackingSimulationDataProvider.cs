@@ -9,7 +9,7 @@ namespace XRTK.Providers.InputSystem.Simulation
 {
     public class EyeTrackingSimulationDataProvider : BaseDataProvider, IMixedRealityInputSimulationDataProvider //, IMixedRealityEyeGazeDataProvider
     {
-        private MixedRealityEyeTrackingInputSimulationDataProviderProfile profile;
+        private MixedRealityEyeTrackingSimulationDataProviderProfile profile;
 
         ///// <inheritdoc/>
         //IMixedRealityEyeSaccadeProvider IMixedRealityEyeGazeDataProvider.SaccadeProvider => null;
@@ -17,7 +17,7 @@ namespace XRTK.Providers.InputSystem.Simulation
         ///// <inheritdoc/>
         //bool IMixedRealityEyeGazeDataProvider.SmoothEyeTracking { get; set; }
 
-        public EyeTrackingSimulationDataProvider(string name, uint priority, MixedRealityEyeTrackingInputSimulationDataProviderProfile profile) : base(name, priority)
+        public EyeTrackingSimulationDataProvider(string name, uint priority, MixedRealityEyeTrackingSimulationDataProviderProfile profile) : base(name, priority)
         {
             this.profile = profile;
         }

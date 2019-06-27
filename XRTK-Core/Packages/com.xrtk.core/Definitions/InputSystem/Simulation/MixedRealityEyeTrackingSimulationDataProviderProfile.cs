@@ -7,7 +7,7 @@ using XRTK.Definitions.Utilities;
 namespace XRTK.Definitions.InputSystem.Simulation
 {
     [CreateAssetMenu(menuName = "Mixed Reality Toolkit/Input System/Simulation/Eye Tracking Input Simulation Profile", fileName = "MixedRealityEyeTrackingInputSimulationProfile", order = (int)CreateProfileMenuItemIndices.InputSimulation)]
-    public class MixedRealityEyeTrackingInputSimulationDataProviderProfile : BaseMixedRealityInputSimulationDataProviderProfile
+    public class MixedRealityEyeTrackingSimulationDataProviderProfile : BaseMixedRealityInputSimulationDataProviderProfile
     {
         [Header("Eye Simulation")]
         [SerializeField]
