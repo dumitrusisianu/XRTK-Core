@@ -2,10 +2,12 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using XRTK.Definitions.InputSystem.Simulation;
+using XRTK.Interfaces.Providers.InputSystem.Simulation;
+using XRTK.Services;
 
 namespace XRTK.Providers.InputSystem.Simulation
 {
-    public class EyeTrackingSimulationDataProvider : BaseSimulationDataProvider //, IMixedRealityEyeGazeDataProvider
+    public class EyeTrackingSimulationDataProvider : BaseDataProvider, IMixedRealityInputSimulationDataProvider //, IMixedRealityEyeGazeDataProvider
     {
         private MixedRealityEyeTrackingInputSimulationDataProviderProfile profile;
 
