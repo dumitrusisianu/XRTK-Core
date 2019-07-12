@@ -14,12 +14,12 @@ namespace XRTK.Inspectors.Profiles
         /// </summary>
         protected static void RenderMixedRealityToolkitLogo()
         {
-            GUILayout.BeginHorizontal();
-            GUILayout.FlexibleSpace();
-            GUILayout.Label(EditorGUIUtility.isProSkin ? MixedRealityInspectorUtility.LightThemeLogo : MixedRealityInspectorUtility.DarkThemeLogo, GUILayout.MaxHeight(128f));
-            GUILayout.FlexibleSpace();
-            GUILayout.EndHorizontal();
-            GUILayout.Space(12f);
+//            GUILayout.BeginHorizontal();
+//            GUILayout.FlexibleSpace();
+//            GUILayout.Label(EditorGUIUtility.isProSkin ? MixedRealityInspectorUtility.LightThemeLogo : MixedRealityInspectorUtility.DarkThemeLogo, GUILayout.MaxHeight(128f));
+//            GUILayout.FlexibleSpace();
+//            GUILayout.EndHorizontal();
+//            GUILayout.Space(12f);
         }
     }
 }

@@ -181,11 +181,11 @@ namespace XRTK.Inspectors
             {
                 EditorPreferences.Set("_AutoLoadSymbolicLinks", autoLoadSymbolicLinks = value);
 
-                if (autoLoadSymbolicLinks && SymbolicLinker.Settings == null)
-                {
-                    var profile = ScriptableObject.CreateInstance(nameof(SymbolicLinkSettings));
-                    profile.CreateAsset("Assets/XRTK.Generated/CustomProfiles");
-                }
+//                if (autoLoadSymbolicLinks && SymbolicLinker.Settings == null)
+//                {
+//                    var profile = ScriptableObject.CreateInstance(nameof(SymbolicLinkSettings));
+//                    profile.CreateAsset("Assets/XRTK.Generated/CustomProfiles");
+//                }
             }
         }
 
@@ -324,38 +324,38 @@ namespace XRTK.Inspectors
             EditorGUI.BeginChangeCheck();
             autoLoadSymbolicLinks = EditorGUILayout.Toggle("Auto Load Symbolic Links", AutoLoadSymbolicLinks);
 
-            if (EditorGUI.EndChangeCheck())
-            {
-                AutoLoadSymbolicLinks = autoLoadSymbolicLinks;
+//            if (EditorGUI.EndChangeCheck())
+//            {
+//                AutoLoadSymbolicLinks = autoLoadSymbolicLinks;
+//
+//                if (AutoLoadSymbolicLinks)
+//                {
+//                    EditorApplication.delayCall += () => SymbolicLinker.RunSync();
+//                }
+//            }
 
-                if (AutoLoadSymbolicLinks)
-                {
-                    EditorApplication.delayCall += () => SymbolicLinker.RunSync();
-                }
-            }
-
-            EditorGUI.BeginChangeCheck();
-            var symbolicLinkSettings = EditorGUILayout.ObjectField("Symbolic Link Settings", SymbolicLinker.Settings, typeof(SymbolicLinkSettings), false) as SymbolicLinkSettings;
-
-            if (EditorGUI.EndChangeCheck())
-            {
-                if (symbolicLinkSettings != null)
-                {
-                    var shouldSync = string.IsNullOrEmpty(SymbolicLinkSettingsPath);
-                    SymbolicLinkSettingsPath = AssetDatabase.GetAssetPath(symbolicLinkSettings);
-                    SymbolicLinker.Settings = AssetDatabase.LoadAssetAtPath<SymbolicLinkSettings>(SymbolicLinkSettingsPath);
-
-                    if (shouldSync)
-                    {
-                        EditorApplication.delayCall += () => SymbolicLinker.RunSync();
-                    }
-                }
-                else
-                {
-                    SymbolicLinkSettingsPath = string.Empty;
-                    SymbolicLinker.Settings = null;
-                }
-            }
+//            EditorGUI.BeginChangeCheck();
+//            var symbolicLinkSettings = EditorGUILayout.ObjectField("Symbolic Link Settings", SymbolicLinker.Settings, typeof(SymbolicLinkSettings), false) as SymbolicLinkSettings;
+//
+//            if (EditorGUI.EndChangeCheck())
+//            {
+//                if (symbolicLinkSettings != null)
+//                {
+//                    var shouldSync = string.IsNullOrEmpty(SymbolicLinkSettingsPath);
+//                    SymbolicLinkSettingsPath = AssetDatabase.GetAssetPath(symbolicLinkSettings);
+//                    SymbolicLinker.Settings = AssetDatabase.LoadAssetAtPath<SymbolicLinkSettings>(SymbolicLinkSettingsPath);
+//
+//                    if (shouldSync)
+//                    {
+//                        EditorApplication.delayCall += () => SymbolicLinker.RunSync();
+//                    }
+//                }
+//                else
+//                {
+//                    SymbolicLinkSettingsPath = string.Empty;
+//                    SymbolicLinker.Settings = null;
+//                }
+//            }
 
             EditorGUI.BeginChangeCheck();
             debugPackageInfo = EditorGUILayout.Toggle(DebugUpmContent, DebugPackageInfo);
@@ -365,28 +365,28 @@ namespace XRTK.Inspectors
                 DebugPackageInfo = debugPackageInfo;
             }
 
-            EditorGUI.BeginChangeCheck();
-            var packageSettings = EditorGUILayout.ObjectField("Package Settings", MixedRealityPackageUtilities.PackageSettings, typeof(MixedRealityPackageSettings), false) as MixedRealityPackageSettings;
-
-            if (EditorGUI.EndChangeCheck())
-            {
-                if (packageSettings != null)
-                {
-                    var shouldSync = string.IsNullOrEmpty(PackageSettingsPath);
-                    PackageSettingsPath = AssetDatabase.GetAssetPath(packageSettings);
-                    MixedRealityPackageUtilities.PackageSettings = AssetDatabase.LoadAssetAtPath<MixedRealityPackageSettings>(PackageSettingsPath);
-
-                    if (shouldSync)
-                    {
-                        EditorApplication.delayCall += MixedRealityPackageUtilities.CheckPackageManifest;
-                    }
-                }
-                else
-                {
-                    PackageSettingsPath = string.Empty;
-                    MixedRealityPackageUtilities.PackageSettings = null;
-                }
-            }
+//            EditorGUI.BeginChangeCheck();
+//            var packageSettings = EditorGUILayout.ObjectField("Package Settings", MixedRealityPackageUtilities.PackageSettings, typeof(MixedRealityPackageSettings), false) as MixedRealityPackageSettings;
+//
+//            if (EditorGUI.EndChangeCheck())
+//            {
+//                if (packageSettings != null)
+//                {
+//                    var shouldSync = string.IsNullOrEmpty(PackageSettingsPath);
+//                    PackageSettingsPath = AssetDatabase.GetAssetPath(packageSettings);
+//                    MixedRealityPackageUtilities.PackageSettings = AssetDatabase.LoadAssetAtPath<MixedRealityPackageSettings>(PackageSettingsPath);
+//
+//                    if (shouldSync)
+//                    {
+//                        EditorApplication.delayCall += MixedRealityPackageUtilities.CheckPackageManifest;
+//                    }
+//                }
+//                else
+//                {
+//                    PackageSettingsPath = string.Empty;
+//                    MixedRealityPackageUtilities.PackageSettings = null;
+//                }
+//            }
 
             EditorGUIUtility.labelWidth = prevLabelWidth;
         }
