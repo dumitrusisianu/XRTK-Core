@@ -6,7 +6,7 @@
 	url = git@github.com:dumitrusisianu/SDK.git
 [submodule "Submodules/UpmGitExtension"]
 	path = Submodules/UpmGitExtension
-	url = https://github.com/XRTK/UpmGitExtension.git
+	url = git@github.com:dumitrusisianu/UpmGitExtension.git
 [submodule "Submodules/Lumin"]
 	path = Submodules/Lumin
 	url = git@github.com:dumitrusisianu/Lumin.git

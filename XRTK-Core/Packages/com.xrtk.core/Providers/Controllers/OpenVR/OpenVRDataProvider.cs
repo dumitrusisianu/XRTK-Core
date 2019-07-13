@@ -135,6 +135,11 @@ namespace XRTK.Providers.Controllers.OpenVR
             {
                 return SupportedControllerType.OculusRemote;
             }
+            
+            if (joystickName.Contains("Vive. Controller"))
+            {
+                return SupportedControllerType.ViveWand;
+            }
 
             if (joystickName.Contains("Vive Wand"))
             {

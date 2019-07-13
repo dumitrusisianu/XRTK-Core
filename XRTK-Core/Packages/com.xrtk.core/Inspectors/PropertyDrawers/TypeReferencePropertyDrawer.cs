@@ -74,6 +74,12 @@ namespace XRTK.Inspectors.PropertyDrawers
 
             foreach (var assembly in assemblies)
             {
+                if(assembly.name.Contains("Test"))
+                    continue;
+                
+                if(assembly.name.Contains("Seed"))
+                    continue;
+                
                 Assembly compiledAssembly = Assembly.Load(assembly.name);
                 FilterTypes(compiledAssembly, filter, excludedTypes, types);
             }
@@ -234,22 +240,22 @@ namespace XRTK.Inspectors.PropertyDrawers
                 var restoreShowMixedValue = EditorGUI.showMixedValue;
                 var isValidClassRef = string.IsNullOrEmpty(reference) || ResolveType(reference) != null;
 
-                if (!isValidClassRef)
-                {
-                    isValidClassRef = TypeSearch(referenceProperty, ref reference, filter, false);
-
-                    if (isValidClassRef)
-                    {
-                        Debug.LogWarning($"Fixed missing class reference for property '{label.text}' on {property.serializedObject.targetObject.name}");
-                    }
-                    else
-                    {
-                        if (!reference.Contains(" {missing}"))
-                        {
-                            reference += " {missing}";
-                        }
-                    }
-                }
+//                if (!isValidClassRef)
+//                {
+//                    isValidClassRef = TypeSearch(referenceProperty, ref reference, filter, false);
+//
+//                    if (isValidClassRef)
+//                    {
+//                        Debug.LogWarning($"Fixed missing class reference for property '{label.text}' on {property.serializedObject.targetObject.name}");
+//                    }
+//                    else
+//                    {
+//                        if (!reference.Contains(" {missing}"))
+//                        {
+//                            reference += " {missing}";
+//                        }
+//                    }
+//                }
 
                 if (isValidClassRef)
                 {
