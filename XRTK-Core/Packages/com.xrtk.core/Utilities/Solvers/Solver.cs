@@ -43,6 +43,9 @@ namespace XRTK.SDK.Utilities.Solvers
 
         private float currentLifetime;
 
+        public float _posThreshold = 0.003f;
+        public float _rotThreshold = .001f;
+
         /// <summary>
         /// The handler reference for this solver that's attached to this <see cref="GameObject"/>
         /// </summary>
@@ -299,6 +302,9 @@ namespace XRTK.SDK.Utilities.Solvers
         /// </summary>
         public void UpdateWorkingPositionToGoal()
         {
+            if ((WorkingPosition - GoalPosition).magnitude < _posThreshold)
+                return;
+            
             WorkingPosition = smoothing ? SmoothTo(WorkingPosition, GoalPosition, SolverHandler.DeltaTime, moveLerpTime) : GoalPosition;
         }
 
@@ -307,6 +313,11 @@ namespace XRTK.SDK.Utilities.Solvers
         /// </summary>
         public void UpdateWorkingRotationToGoal()
         {
+            var quatRot = GoalRotation * Quaternion.Inverse(WorkingRotation);
+            if(Mathf.Abs(quatRot.x) + Mathf.Abs(quatRot.z) + Mathf.Abs(quatRot.y) < _rotThreshold)
+//            if((WorkingRotation.eulerAngles - GoalRotation.eulerAngles).magnitude < 0.05f)
+                return;
+            
             WorkingRotation = smoothing ? SmoothTo(WorkingRotation, GoalRotation, SolverHandler.DeltaTime, rotateLerpTime) : GoalRotation;
         }
 
