@@ -44,7 +44,7 @@ namespace XRTK.SDK.Utilities.Solvers
 
         [SerializeField]
         [Tooltip("The element will stay at least this close to the center of view")]
-        private float maxViewDegrees = 30f;
+        public float maxViewDegrees = 30f;
 
         [SerializeField]
         [Tooltip("Apply a different clamp to vertical FOV than horizontal.  Vertical = Horizontal * aspectV")]
