@@ -10,4 +10,7 @@
 [submodule "Submodules/Lumin"]
 	path = Submodules/Lumin
 	url = git@github.com:dumitrusisianu/Lumin.git
+[submodule "Submodules/Oculus"]
+	path = Submodules/Oculus
+	url = git@github.com:dumitrusisianu/Oculus.git
 
