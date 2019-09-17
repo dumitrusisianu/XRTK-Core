@@ -803,21 +803,17 @@ namespace XRTK.Services.InputSystem
         /// <inheritdoc />
         public void RaisePointerDown(IMixedRealityPointer pointer, MixedRealityInputAction inputAction, IMixedRealityInputSource inputSource = null)
         {
-            Debug.LogError("PointerDown A");
             // Create input event
             pointerEventData.Initialize(pointer, inputAction, inputSource);
 
-            Debug.LogError("PointerDown B");
             // Pass handler through HandleEvent to perform modal/fallback logic
             HandleEvent(pointerEventData, OnPointerDownEventHandler);
 
-            Debug.LogError("PointerDown C");
             var focusedObject = pointer.Result.CurrentPointerTarget;
 
             if (focusedObject != null &&
                 FocusProvider.TryGetSpecificPointerGraphicEventData(pointer, out var graphicInputEventData))
             {
-                Debug.LogError("PointerDown D");
                 ExecuteEvents.ExecuteHierarchy(focusedObject, graphicInputEventData, ExecuteEvents.pointerDownHandler);
             }
         }
