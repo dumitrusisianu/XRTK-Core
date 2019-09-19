@@ -100,7 +100,7 @@ namespace XRTK.Services.CameraSystem
             CameraCache.Main.clearFlags = profile.CameraClearFlagsOpaqueDisplay;
             CameraCache.Main.nearClipPlane = profile.NearClipPlaneOpaqueDisplay;
             CameraCache.Main.backgroundColor = profile.BackgroundColorOpaqueDisplay;
-            QualitySettings.SetQualityLevel(profile.OpaqueQualityLevel, false);
+//            QualitySettings.SetQualityLevel(profile.OpaqueQualityLevel, false);
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace XRTK.Services.CameraSystem
             CameraCache.Main.clearFlags = profile.CameraClearFlagsTransparentDisplay;
             CameraCache.Main.backgroundColor = profile.BackgroundColorTransparentDisplay;
             CameraCache.Main.nearClipPlane = profile.NearClipPlaneTransparentDisplay;
-            QualitySettings.SetQualityLevel(profile.TransparentQualityLevel, false);
+//            QualitySettings.SetQualityLevel(profile.TransparentQualityLevel, false);
         }
     }
 }
